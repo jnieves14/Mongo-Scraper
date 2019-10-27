@@ -39,13 +39,12 @@ app.set("view engine", "handlebars");
 
 // Database configuration with mongoose
 mongoose.Promise = Promise;
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGOLAB_PURPLE_URI = process.env.MONGOLAB_PURPLE_URI || "mongodb://localhost/mongoHeadlines";
 
-// mongoose.connect(MONGODB_URI);
-// mongoose.connect("mongodb://heroku_jmv816f9:5j1nd4taq42hi29bfm5hobeujd@ds133192.mlab.com:33192/heroku_jmv816f9");
-mongoose.connect("mongodb://heroku_gq809z8q:sbr2r803fb1ehqhg7aqr8drqqc@ds339348.mlab.com:39348/heroku_gq809z8q");
+mongoose.connect(MONGOLAB_PURPLE_URI);
 
-//mongoose.connect("mongodb://localhost/mongoscraper");
+// mongoose.connect("mongodb://heroku_gq809z8q:sbr2r803fb1ehqhg7aqr8drqqc@ds339348.mlab.com:39348/heroku_gq809z8q");
+
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -88,7 +87,7 @@ app.get("/scrape", function(req, res) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
     // Now, we grab every h2 within an article tag, and do the following:
-    $("p.title").each(function(i, element) {
+    $("article").each(function(i, element) {
 
       // Save an empty result object
       var result = {};
