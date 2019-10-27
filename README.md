@@ -3,7 +3,7 @@
 ## Overview
 This App scrapes the top articles from the New York Times website. Users can save articles and leave comments on the latest news.
 
-![mainpage screenshot](./assets/images/screenshot.png)
+![mainpage screenshot](https://github.com/jnieves14/Mongo-Scraper/blob/master/public/assets/images/screenshot.png)
 
 ## How It Works
 - Scrape and populate articles by clicking the "Scrape Articles" button at the top of the screen.
